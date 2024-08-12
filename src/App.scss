@@ -1,5 +1,221 @@
-// div.all {
-//   width: 100%;
-//   height: 100%;
-//   background-color: chartreuse;
-// }
+$main-c: #0f172a;
+$btn_c: #4c40f7;
+$btn_c_h: #5c50fc;
+$color1: #1e293b;
+$color2: #ffad60;
+$color3: #a9a9a9;
+$color4: #fff;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@mixin Break-Points($Point) {
+  @if ($Point == xsm) {
+    @media (min-width: 200px) and (max-width: 576px) {
+      @content;
+    }
+  } @else if($Point == sm) {
+    @media (min-width: 576px) and (max-width: 768px) {
+      @content;
+    }
+  } @else if($Point == md) {
+    @media (min-width: 768px) and (max-width: 992px) {
+      @content;
+    }
+  } @else if($Point == lg) {
+    @media (min-width: 992px) and (max-width: 1200px) {
+      @content;
+    }
+  } @else if($Point == xlg) {
+    @media (min-width: 1200px) and (max-width: 1400px) {
+      @content;
+    }
+  } @else if($Point == xxlg) {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+body {
+  background-color: $btn_c;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+div.container {
+  div.ExamBody {
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    div.Examin {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: wrap column;
+      div.ExamQuastions {
+        width: 65%;
+        height: 550px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: wrap column;
+        background-color: $color1;
+        border-radius: 10px;
+        padding: 3%;
+        div.head {
+          //   background-color: $color2;
+          width: 100%;
+          padding: 3%;
+
+          h2 {
+            font-size: 19px;
+            color: $color2;
+            text-transform: capitalize;
+
+            span {
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              background-color: $color2;
+              border-radius: 100%;
+              text-transform: capitalize;
+            }
+          }
+
+          p {
+            font-size: 17px;
+            font-weight: normal;
+            padding-left: 15px;
+            margin-top: 15px;
+            color: $btn_c_h;
+            text-transform: capitalize;
+          }
+        }
+        div.suaal_jawaab {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
+          gap: 10px;
+          margin: 15px;
+          div.suaal {
+            padding: 15px;
+            border-radius: 5px;
+            height: 150px;
+
+            h1 {
+              color: $color4;
+              font-size: 2rem;
+              font-weight: 500;
+              line-height: 1.6;
+              text-transform: capitalize;
+            }
+          }
+          div.Jawaabo {
+            // background-color: $color3;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            // flex-flow: wrap column;
+            width: 100%;
+            padding: 5px;
+            ul {
+              width: 100%;
+              height: 100%;
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              grid-template-rows: 1fr;
+              gap: 15px;
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              li {
+                background-color: $btn_c_h;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-flow: wrap column;
+                border-radius: 5px;
+                border: solid 2px transparent;
+                transition: all 0.25s ease-in-out;
+                cursor: pointer;
+                text-transform: capitalize;
+                color: $color4;
+                &:hover {
+                  background-color: $color2;
+                  box-shadow: 3px 2px 26px -7px $btn_c;
+                }
+              }
+            }
+          }
+          button {
+            width: 40%;
+            height: 45px;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            margin-top: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: $color4;
+            border: solid 1.5px $color2;
+            margin: 5px;
+            transition: all 0.25s ease-in-out;
+            &:hover {
+              background-color: $color2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include Break-Points(xsm) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@include Break-Points(sm) {
+  .container {
+    max-width: 540px;
+  }
+}
+@include Break-Points(md) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@include Break-Points(lg) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@include Break-Points(xlg) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@include Break-Points(xxlg) {
+  .haye {
+    max-width: 1320px;
+  }
+}
