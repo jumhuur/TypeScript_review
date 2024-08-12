@@ -116,13 +116,17 @@ div.container {
             padding: 15px;
             border-radius: 5px;
             height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             h1 {
               color: $color4;
-              font-size: 2rem;
+              font-size: 2.2rem;
               font-weight: 500;
               line-height: 1.6;
               text-transform: capitalize;
+              vertical-align: baseline;
             }
           }
           div.Jawaabo {
@@ -157,6 +161,10 @@ div.container {
                 text-transform: capitalize;
                 color: $color4;
                 &:hover {
+                  background-color: $color2;
+                  box-shadow: 3px 2px 26px -7px $btn_c;
+                }
+                &.Active {
                   background-color: $color2;
                   box-shadow: 3px 2px 26px -7px $btn_c;
                 }

@@ -4,9 +4,20 @@ interface QuationTypes {
   Answers: string[];
   CorectAnswer: number;
   GetOneQuation: () => void;
+  CheckAnswer: (index: number) => void;
 }
 
-const ExamBoday = ({ Quation, Answers, QuId, GetOneQuation }: QuationTypes) => {
+const ExamBoday = ({
+  Quation,
+  Answers,
+  QuId,
+  GetOneQuation,
+  CheckAnswer,
+}: QuationTypes) => {
+  //   const [IndexNum, setIndexNum] = useState<number>();
+  //   const CheckIndex = (index: number) => {
+  //     setIndexNum(index);
+  //   };
   return (
     <>
       <div className="ExamBody">
@@ -31,7 +42,14 @@ const ExamBoday = ({ Quation, Answers, QuId, GetOneQuation }: QuationTypes) => {
                 <ul>
                   {Answers?.map((Ans, index) => (
                     <>
-                      <li key={index}>{Ans}</li>
+                      <li
+                        className={index === 2 ? "Active" : ""}
+                        onClick={() => CheckAnswer(index)}
+                        key={index}
+                        value={Ans}
+                      >
+                        {Ans}
+                      </li>
                     </>
                   ))}
                 </ul>

@@ -3,25 +3,25 @@
     "QuId": 1,
     "Quation": "Tag Kamida Html Tags Ee Aan Lahayn Xidhitaan Waa",
     "Answers": ["Div Tag", "Table Tag", "hr Tag", "Label Tag"],
-    "CorectAnswer": 3
+    "CorectAnswer": 2
   },
   {
     "QuId": 2,
-    "Quation": "Tag Kamida Html Tags Ee Aan Lahayn Xidhitaan Waa",
-    "Answers": ["Div Tag", "Table Tag", "hr Tag", "Label Tag"],
+    "Quation": "Noocyada input type-ka waxaa ka mida",
+    "Answers": ["text", "number", "range", "All"],
     "CorectAnswer": 3
   },
   {
     "QuId": 3,
     "Quation": "Tag Kamida Html Tags Ee Aan Lahayn Xidhitaan Waa",
     "Answers": ["Div Tag", "Table Tag", "hr Tag", "Label Tag"],
-    "CorectAnswer": 3
+    "CorectAnswer": 1
   },
   {
     "QuId": 4,
     "Quation": "Tag Kamida Html Tags Ee Aan Lahayn Xidhitaan Waa",
     "Answers": ["Div Tag", "Table Tag", "hr Tag", "Label Tag"],
-    "CorectAnswer": 3
+    "CorectAnswer": 2
   },
   {
     "QuId": 5,
