@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 interface PostInterFace {
-  body: string;
   Id: number;
+  description: string;
   title: string;
-  userId: number;
+  price: number;
+  image: string;
 }
 
 const GithubUser = () => {
   const [userData, setuserData] = useState<PostInterFace>();
   const [loading, setloading] = useState<boolean>(false);
   const [NameUser, setNameUser] = useState<string>("1");
+  const [Products, setProducts] = useState<[PostInterFace]>();
 
   const handalechangeinput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNameUser(e.target.value);
@@ -24,9 +25,7 @@ const GithubUser = () => {
     e.preventDefault();
     try {
       setloading(true);
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${Id}`
-      );
+      const response = await fetch(`https://fakestoreapi.com/products/1${Id}`);
       const data = await response.json();
       if (response.ok) {
         setloading(false);
@@ -37,9 +36,18 @@ const GithubUser = () => {
     }
   };
 
-  //   useEffect(() => {
-  //     dataHandaling();
-  //   }, []);
+  const GetAll = async () => {
+    const AllProduct = await fetch("https://fakestoreapi.com/products");
+    const data = await AllProduct.json();
+    if (AllProduct.ok) {
+      setloading(true);
+      setProducts(data);
+    }
+  };
+
+  useEffect(() => {
+    GetAll();
+  }, []);
   return (
     <>
       <div className="user">
@@ -65,16 +73,37 @@ const GithubUser = () => {
           <>
             {userData && (
               <div className="userdetails">
-                <p>
+                <h3>
                   {userData.title} - {userData.Id}
-                </p>
-                <p>{userData.body}</p>
-                <img src="" alt="sawir User Github" />
+                </h3>
+                <p>{userData.description}</p>
+                <img
+                  src={userData.image}
+                  alt="sawir User Github"
+                  width={"400px"}
+                />
               </div>
             )}
           </>
         )}
       </div>
+      <hr />
+      {Products &&
+        Products.map((Product) => (
+          <div className="all">
+            <div className="userdetails">
+              <h3>
+                {Product.title} - {Product.Id}
+              </h3>
+              <p>{Product.description}</p>
+              <img
+                src={Product.image}
+                alt="sawir User Github"
+                width={"400px"}
+              />
+            </div>
+          </div>
+        ))}
     </>
   );
 };
