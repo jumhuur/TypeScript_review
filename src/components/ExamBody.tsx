@@ -38,19 +38,6 @@ const ExamBoday = ({
     await Select.current?.play();
   };
 
-  // const Time = () => {
-  //   setInterval(() => {
-  //     if (ActiveTime && Qtime > 0) {
-  //       //const timesecQ: number = 30;
-  //       const time = Qtime - 1;
-  //       setQtime(time);
-  //       console.log("Time", time);
-  //     }
-  //   }, 1000);
-  // };
-
-  // Time();
-
   useEffect(() => {});
   return (
     <>
