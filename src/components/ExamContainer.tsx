@@ -9,28 +9,21 @@ const ExamContainer = () => {
     QuId: number;
     Quation: string;
     Answers: string[];
-    CorectAnswer: number;
+    CorectAnswer: string;
   }
   const [QId, setQId] = useState<number>(1);
   const [Quation, setQuation] = useState<QuationTypes>();
-  const [InProgress, setInProgress] = useState<number>(1);
-  const [IndexNum, setIndexNum] = useState<number>(0);
+  const [InProgress, setInProgress] = useState<number>(0);
+  const [Jawaab, setJawaab] = useState<string | null>(null);
   const [ResultPercentage, setResultPercentage] = useState<number>(0);
   const [Qtime, setQtime] = useState<number>(30);
   const [ActiveTime, setActiveTime] = useState<boolean>(false);
   const CountQuation: number = Quations.length;
   const NextSound = useRef<HTMLAudioElement>(null);
-  const CheckAnswer = (index: number | null) => {
-    if (index === Quation?.CorectAnswer) {
-      setIndexNum(index);
-      setInProgress(InProgress + 1);
-      //console.log("sax", InProgress);
-    }
-  };
-
-  const GetOneQuation = async (Index: number | null) => {
+  const GetOneQuation = async (Index: string | null) => {
     setActiveTime(true);
     CheckAnswer(Index);
+    //CheckJawaab(Index);
     setQId(QId + 1);
     const suaal = Quations.filter((QuationOne) => {
       return QuationOne.QuId === QId;
@@ -50,8 +43,16 @@ const ExamContainer = () => {
     return Result;
   };
 
+  const CheckAnswer = (Jawaab: string | null) => {
+    if (Jawaab === Quation?.CorectAnswer) {
+      setJawaab(Jawaab);
+      setInProgress(InProgress + 1);
+      console.log("sax", InProgress);
+    }
+  };
+
   useEffect(() => {
-    GetOneQuation(IndexNum);
+    GetOneQuation(Jawaab);
   }, []);
 
   return (

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import SelecSound from "../assets/Sounds/next.m4a";
-
 interface QuationTypes {
   QuId: number;
   Quation: string;
   Answers: string[];
-  CorectAnswer: number;
-  GetOneQuation: (IndexNum: number | null) => void;
-  CheckAnswer: (index: number) => void;
+  CorectAnswer: string;
+  GetOneQuation: (Jawaab: string | null) => void;
+  CheckAnswer: (index: string) => void;
   Qtime: number;
   ActiveTime: boolean;
   setQtime: React.Dispatch<React.SetStateAction<number>>;
@@ -23,11 +22,18 @@ const ExamBoday = ({
   CountQuation,
 }: QuationTypes) => {
   const [IndexNum, setIndexNum] = useState<number | null>(null);
+  const [Jawaab, setJawaab] = useState<string | null>(null);
   const Select = React.useRef<HTMLAudioElement>(null);
   //console.log(Qtime);
 
   //funtions
-  const CheckIndex = async (index: number) => {
+  const CheckIndex = async (
+    e: React.MouseEvent<HTMLLIElement>,
+    index: number
+  ) => {
+    const jawaab = e.currentTarget.textContent;
+    setJawaab(jawaab);
+    console.log();
     setIndexNum(index);
     await Select.current?.play();
   };
@@ -55,7 +61,7 @@ const ExamBoday = ({
               <h2>
                 <span></span> Html Complate Exam
               </h2>
-              <p>
+              <p className="Wakhtiga">
                 Wakhtiga <span>{Qtime}</span>
               </p>
               <p>
@@ -75,7 +81,7 @@ const ExamBoday = ({
                     <>
                       <li
                         className={index === IndexNum ? "Active" : ""}
-                        onClick={() => CheckIndex(index)}
+                        onClick={(e) => CheckIndex(e, index)}
                         key={Ans}
                         value={Ans}
                       >
@@ -87,7 +93,7 @@ const ExamBoday = ({
               </div>
               <button
                 onClick={() => {
-                  GetOneQuation(IndexNum);
+                  GetOneQuation(Jawaab);
                   setIndexNum(null);
                 }}
               >

@@ -3,30 +3,30 @@
     "QuId": 1,
     "Quation": "Tag Kamida Html Tags Ee Aan Lahayn Xidhitaan Waa",
     "Answers": ["Div Tag", "Table Tag", "hr Tag", "Label Tag"],
-    "CorectAnswer": 2
+    "CorectAnswer": "hr Tag"
   },
   {
     "QuId": 2,
     "Quation": "Noocyada input type-ka waxaa ka mida",
     "Answers": ["text", "number", "range", "All"],
-    "CorectAnswer": 3
+    "CorectAnswer": "All"
   },
   {
     "QuId": 3,
     "Quation": "Tag-yada Qaadan Karra src attrbuit waxaa kamida",
     "Answers": ["div Tag", "Table Tag", "img Tag", "form Tag"],
-    "CorectAnswer": 2
+    "CorectAnswer": "img Tag"
   },
   {
     "QuId": 4,
     "Quation": "Noocyada List-yada waxaa kamida ",
     "Answers": ["Div Tag", "li Tag", "ol Tag", "Label Tag"],
-    "CorectAnswer": 2
+    "CorectAnswer": "ol Tag"
   },
   {
     "QuId": 5,
     "Quation": "class & Id Waxaa Qadan Karra ",
     "Answers": ["div tag and span Tag", "All Tags", "input tag", "form Tag"],
-    "CorectAnswer": 1
+    "CorectAnswer": "All Tags"
   }
 ]
