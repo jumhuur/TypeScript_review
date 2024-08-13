@@ -1,21 +1,21 @@
 interface ExamBoday {
   InProgress: number;
+  CountQuation: number;
+  ResultPercentage: number;
 }
 
-const Result = ({ InProgress }: ExamBoday) => {
+const Result = ({ ResultPercentage, InProgress }: ExamBoday) => {
   return (
     <>
       <div className="ExamBody">
         <div className="Examin">
-          <div className="ExamQuastions">
-            <div className="head">
-              <h2>
-                <span></span> Html Complate Exam
-              </h2>
-              <p>Natiijada</p>
+          <div className="ExamQuastions result">
+            <div className="head result">
+              <h2>Natiijada</h2>
+              <p>Waxaad Saxday | {InProgress - 1}</p>
             </div>
             <div className="suaal_jawaab">
-              <p>{InProgress}- Ayaa Saxa</p>
+              <p className="resulText">{ResultPercentage}%</p>
             </div>
           </div>
         </div>
