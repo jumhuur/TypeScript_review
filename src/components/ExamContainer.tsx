@@ -22,9 +22,9 @@ const ExamContainer = () => {
   //const [count, setCount] = useState<number>(0);
   const NextSound = useRef<HTMLAudioElement>(null);
   const TimeUpd = useRef<HTMLAudioElement>(null);
-  const GetOneQuation = async (Index: string | null) => {
+  const GetOneQuation = async (Jawaab: string | null) => {
     setActiveTime(true);
-    CheckAnswer(Index);
+    CheckAnswer(Jawaab);
     // Bilaabida Timka su,aasha
     //Time(80, QId);
     setQId(QId + 1);
@@ -122,7 +122,7 @@ const ExamContainer = () => {
   }, []);
 
   useEffect(() => {
-    Time(CountQuation * 35, QId);
+    Time(CountQuation * 15, QId);
   }, []);
 
   return (

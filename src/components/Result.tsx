@@ -23,7 +23,7 @@ const Result = ({ InProgress, CountQuation }: ExamBoday) => {
               <p>Waxaad Saxday | {InProgress}</p>
             </div>
             <div className="suaal_jawaab">
-              <p className="resulText">{precantage}%</p>
+              <p className="resulText">{parseInt(String(precantage))}%</p>
             </div>
           </div>
         </div>

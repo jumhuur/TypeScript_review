@@ -27,10 +27,10 @@ const ExamBoday = ({
   const btn = React.useRef<HTMLButtonElement>(null);
   //funtions
   const CheckIndex = async (
-    e: React.MouseEvent<HTMLLIElement>,
+    e: React.MouseEvent<HTMLInputElement>,
     index: number
   ) => {
-    const jawaab = e.currentTarget.textContent;
+    const jawaab = e.currentTarget.value;
     setJawaab(jawaab);
     console.log();
     setIndexNum(index);
@@ -67,13 +67,17 @@ const ExamBoday = ({
                 <ul>
                   {Answers?.map((Ans, index) => (
                     <>
-                      <li
-                        className={index === IndexNum ? "Active" : ""}
-                        onClick={(e) => CheckIndex(e, index)}
-                        key={Ans}
-                        value={Ans}
-                      >
-                        {Ans}
+                      <li className={index === IndexNum ? "Active" : ""}>
+                        <input
+                          className="inputradio"
+                          id={Ans}
+                          type="radio"
+                          onClick={(e) => CheckIndex(e, index)}
+                          key={index}
+                          value={Ans}
+                          name="jawaab"
+                        />
+                        <label htmlFor={Ans}>{Ans}</label>
                       </li>
                     </>
                   ))}

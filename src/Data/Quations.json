@@ -13,7 +13,7 @@
   },
   {
     "QuId": 3,
-    "Quation": "Tag-yada Qaadan Karra src attrbuit waxaa kamida",
+    "Quation": "Tag-yada Qaadan Karra src Attributes waxaa kamida",
     "Answers": ["div Tag", "Table Tag", "img Tag", "form Tag"],
     "CorectAnswer": "img Tag"
   },
@@ -28,5 +28,85 @@
     "Quation": "class & Id Waxaa Qadan Karra ",
     "Answers": ["div tag and span Tag", "All Tags", "input tag", "form Tag"],
     "CorectAnswer": "All Tags"
+  },
+  {
+    "QuId": 6,
+    "Quation": "Placeholder Ma Qaadan Karro Tagn Soo socdaa",
+    "Answers": [
+      "<input type=range>",
+      "<input type=number>",
+      "<input type=password>",
+      "<input type=text>"
+    ],
+    "CorectAnswer": "<input type=range>"
+  },
+  {
+    "QuId": 7,
+    "Quation": "Html Waxaa Looga Jeedaa Ama Loo Soo Gabiyay ",
+    "Answers": [
+      "Hyper Text Markup Language",
+      "Home Tool Markup Language",
+      "Hyperlinks and Text Markup Language",
+      "Hyperlinks Text Markup Language"
+    ],
+    "CorectAnswer": "Hyper Text Markup Language"
+  },
+  {
+    "QuId": 8,
+    "Quation": "Dooro Element-ga saxda ah ee Loogu Tallo Gallay ciwaanka wayn",
+    "Answers": ["<heading>", "<h6>", "<head>", "<h1>"],
+    "CorectAnswer": "<h1>"
+  },
+  {
+    "QuId": 9,
+    "Quation": "Waa Kee Element-ga Saxda ee Loogu tallo gallay in la sameeyo Break-line",
+    "Answers": ["<lb>", "<br>", "<break>", "<hr>"],
+    "CorectAnswer": "<br>"
+  },
+  {
+    "QuId": 10,
+    "Quation": "Tagee Lagu Calaamadiyaa Qoraalka Ah Important",
+    "Answers": ["<important>", "<strong>", "<Bold>", "<input type=text>"],
+    "CorectAnswer": "<strong>"
+  },
+  {
+    "QuId": 11,
+    "Quation": "Kuwee Ah Table Elements Sax ah",
+    "Answers": [
+      "<table><tr><tt>",
+      "<thead><body><tr>",
+      "<table><head><tfoot>",
+      "<table><tr><td>"
+    ],
+    "CorectAnswer": "<table><tr><td>"
+  },
+  {
+    "QuId": 12,
+    "Quation": "Dooro Qaabka Saxda Ah Ee Loo sameeyo Html comments",
+    "Answers": [
+      "<!--- and end with --->",
+      "<!-- and end with -->",
+      "<!- and end with ->",
+      "<-- and end with !-->"
+    ],
+    "CorectAnswer": "<!-- and end with -->"
+  },
+  {
+    "QuId": 13,
+    "Quation": "Element-gee Lagu Sameeyaa List Lanbaro Wata",
+    "Answers": ["<li>", "<ul>", "<ol>", "<dl>"],
+    "CorectAnswer": "<ol>"
+  },
+  {
+    "QuId": 14,
+    "Quation": "input feild ay Waajid Tahay in la Buuxiyo Marka La Qeeyaxayo waxaa la isticmalaa",
+    "Answers": ["placeholder", "required", "Name", "max"],
+    "CorectAnswer": "required"
+  },
+  {
+    "QuId": 15,
+    "Quation": "Wakee Html Elemet-ga inoo Qeexaya navigation links?",
+    "Answers": ["<nav>", "<Link>", "<navigation>", "<navigate>"],
+    "CorectAnswer": "<nav>"
   }
 ]

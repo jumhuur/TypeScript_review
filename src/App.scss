@@ -171,8 +171,9 @@ div.container {
                 display: flex;
                 justify-content: center;
                 align-items: flex-start;
-                padding-left: 25px;
                 flex-flow: wrap column;
+                padding-left: 25px;
+
                 border-radius: 5px;
                 border: solid 2px transparent;
                 transition: all 0.25s ease-in-out;
@@ -181,6 +182,7 @@ div.container {
                 color: $color4;
                 border-left: solid 1.5px $color2;
                 border-right: solid 1.5px $color2;
+
                 &:hover {
                   background-color: $btn_c_h;
                   box-shadow: 3px 2px 26px -7px $btn_c;
@@ -192,6 +194,22 @@ div.container {
                   box-shadow: 3px 2px 26px -7px $btn_c;
                   border-left: solid 1.5px $color2;
                   border-right: solid 1.5px $color2;
+                }
+
+                input.inputradio {
+                  background-color: $color4;
+                  width: 25px;
+                  height: 25px;
+                }
+
+                label {
+                  height: 100%;
+                  width: 90%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: flex-start;
+                  flex-flow: wrap column;
+                  cursor: pointer;
                 }
               }
             }
