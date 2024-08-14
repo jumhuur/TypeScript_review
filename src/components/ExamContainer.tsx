@@ -61,7 +61,7 @@ const ExamContainer = () => {
     const DeadLine: number = TimeEvent.setSeconds(
       TimeEvent.getSeconds() + Deuration
     );
-    const TimeInterval = setInterval(() => {
+    const TimeInterval = setInterval(async () => {
       if (QId <= 5) {
         const TimeNow: number = new Date().getTime();
         const Farqi: number = DeadLine - TimeNow;
@@ -86,15 +86,15 @@ const ExamContainer = () => {
 
         if (TextSecond <= 9) {
           TimeDhaba = `${TextMinute}:0${TextSecond}`;
-          //TimeUpd.current?.play();
         }
 
         if (TextSecond <= 9 && TextMinute <= 9) {
           TimeDhaba = `0${TextMinute}:0${TextSecond}`;
         }
 
+        //qalad ayaa ka jira halkan waan hakiyay ilaa uu cadaanayo qaladku
         // if (TextMinute === 0 && TextMinute <= 5) {
-        //   TimeUpd.current?.play();
+        //   await TimeUpd.current?.play();
         //   console.log(TimeUpd);
         // }
 
