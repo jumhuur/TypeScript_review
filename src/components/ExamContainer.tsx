@@ -57,6 +57,7 @@ const ExamContainer = () => {
   const Time = (Deuration: number, QId: number) => {
     //Waa Hadii aan ku xidhayo wakhti gaara
     //const TimeEvent: number = new Date("Aug 20, 2024 00:00:00").getTime();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const TimeEvent: number | any = new Date();
     const DeadLine: number = TimeEvent.setSeconds(
       TimeEvent.getSeconds() + Deuration
@@ -79,7 +80,6 @@ const ExamContainer = () => {
         const TextMinute = Math.floor((Farqi % Hours) / Minutes);
         const TextSecond = Math.floor((Farqi % Minutes) / seconds);
         let TimeDhaba: string = `${TextMinute}:${TextSecond}`;
-        setQtime((prevQtime) => (prevQtime = `${TimeDhaba}`));
         if (TextMinute <= 9) {
           TimeDhaba = `0${TextMinute}:${TextSecond}`;
         }
@@ -104,6 +104,9 @@ const ExamContainer = () => {
           setActiveTime(false);
           //TimeUpd.current?.pause();
         }
+
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        setQtime((_prevQtime) => (_prevQtime = `${TimeDhaba}`));
         return () => clearInterval(TimeInterval);
       }
 
