@@ -7,9 +7,9 @@ interface QuationTypes {
   CorectAnswer: string;
   GetOneQuation: (Jawaab: string | null) => void;
   CheckAnswer: (index: string) => void;
-  Qtime: number;
+  Qtime: string;
   ActiveTime: boolean;
-  setQtime: React.Dispatch<React.SetStateAction<number>>;
+  setQtime: React.Dispatch<React.SetStateAction<string>>;
   CountQuation: number;
 }
 
@@ -18,14 +18,13 @@ const ExamBoday = ({
   Answers,
   QuId,
   GetOneQuation,
-  Qtime,
   CountQuation,
+  Qtime,
 }: QuationTypes) => {
   const [IndexNum, setIndexNum] = useState<number | null>(null);
   const [Jawaab, setJawaab] = useState<string | null>(null);
   const Select = React.useRef<HTMLAudioElement>(null);
-  //console.log(Qtime);
-
+  const btn = React.useRef<HTMLButtonElement>(null);
   //funtions
   const CheckIndex = async (
     e: React.MouseEvent<HTMLLIElement>,
@@ -38,7 +37,9 @@ const ExamBoday = ({
     await Select.current?.play();
   };
 
-  useEffect(() => {});
+  console.log(Qtime);
+
+  useEffect(() => {}, []);
   return (
     <>
       <div className="ExamBody">
@@ -49,10 +50,10 @@ const ExamBoday = ({
                 <span></span> Html Complate Exam
               </h2>
               <p className="Wakhtiga">
-                Wakhtiga <span>{Qtime}</span>
+                Wakhtiga Ku Hadhay: <span className="Time">{Qtime} </span>
               </p>
               <p>
-                Suaalaha : <span>{QuId}</span> | {CountQuation}
+                Suaalaha : <span className="Qid">{QuId}</span> | {CountQuation}
               </p>
               <audio ref={Select}>
                 <source src={SelecSound} />
@@ -79,6 +80,7 @@ const ExamBoday = ({
                 </ul>
               </div>
               <button
+                ref={btn}
                 onClick={() => {
                   GetOneQuation(Jawaab);
                   setIndexNum(null);

@@ -112,6 +112,11 @@ div.container {
             padding-top: 10px;
             color: $btn_c_h;
             text-transform: capitalize;
+            span.Time {
+              color: $color2;
+              font-size: 20px;
+              font-weight: bold;
+            }
           }
         }
         div.suaal_jawaab {

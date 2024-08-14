@@ -3,7 +3,7 @@ import Quations from "../Data/Quations.json";
 import { useEffect, useRef, useState } from "react";
 import Result from "./Result";
 import Next from "../assets/Sounds/LevelUp.m4a";
-//import TimeSound from "../assets/Sounds/superTime.wav";
+import TimeSound from "../assets/Sounds/superTime.wav";
 const ExamContainer = () => {
   interface QuationTypes {
     QuId: number;
@@ -16,11 +16,12 @@ const ExamContainer = () => {
   const [InProgress, setInProgress] = useState<number>(0);
   const [Jawaab, setJawaab] = useState<string | null>(null);
   const [ResultPercentage, setResultPercentage] = useState<number>(0);
-  const [Qtime, setQtime] = useState<number>(30);
+  const [Qtime, setQtime] = useState<string>("");
   const [ActiveTime, setActiveTime] = useState<boolean>(false);
   const CountQuation: number = Quations.length;
   //const [count, setCount] = useState<number>(0);
   const NextSound = useRef<HTMLAudioElement>(null);
+  const TimeUpd = useRef<HTMLAudioElement>(null);
   const GetOneQuation = async (Index: string | null) => {
     setActiveTime(true);
     CheckAnswer(Index);
@@ -53,37 +54,72 @@ const ExamContainer = () => {
     }
   };
 
+  const Time = (Deuration: number, QId: number) => {
+    //Waa Hadii aan ku xidhayo wakhti gaara
+    //const TimeEvent: number = new Date("Aug 20, 2024 00:00:00").getTime();
+    const TimeEvent: number | any = new Date();
+    const DeadLine: number = TimeEvent.setSeconds(
+      TimeEvent.getSeconds() + Deuration
+    );
+    const TimeInterval = setInterval(() => {
+      if (QId <= 5) {
+        const TimeNow: number = new Date().getTime();
+        const Farqi: number = DeadLine - TimeNow;
+
+        // how ican get Time Unites
+
+        const seconds = 1000;
+        const Minutes = seconds * 60;
+        const Hours = Minutes * 60;
+        //const Days = Hours * 24;
+
+        // isku gaynta wakhtiyada
+        // const textday = Math.floor(Farqi / Days);
+        // const TextHour = Math.floor((Farqi % Days) / Hours);
+        const TextMinute = Math.floor((Farqi % Hours) / Minutes);
+        const TextSecond = Math.floor((Farqi % Minutes) / seconds);
+        let TimeDhaba: string = `${TextMinute}:${TextSecond}`;
+        setQtime((prevQtime) => (prevQtime = `${TimeDhaba}`));
+        if (TextMinute <= 9) {
+          TimeDhaba = `0${TextMinute}:${TextSecond}`;
+        }
+
+        if (TextSecond <= 9) {
+          TimeDhaba = `${TextMinute}:0${TextSecond}`;
+          //TimeUpd.current?.play();
+        }
+
+        if (TextSecond <= 9 && TextMinute <= 9) {
+          TimeDhaba = `0${TextMinute}:0${TextSecond}`;
+        }
+
+        // if (TextMinute === 0 && TextMinute <= 5) {
+        //   TimeUpd.current?.play();
+        //   console.log(TimeUpd);
+        // }
+
+        if (TextMinute === 0 && TextSecond === 0) {
+          console.log("Time is End");
+          clearInterval(TimeInterval);
+          setActiveTime(false);
+          //TimeUpd.current?.pause();
+        }
+        return () => clearInterval(TimeInterval);
+      }
+
+      if (QId > 5) {
+        clearInterval(TimeInterval);
+        console.log("Time is Up");
+      }
+    }, 1000);
+  };
+
   useEffect(() => {
     GetOneQuation(Jawaab);
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setQtime((prevQtime) => prevQtime - 1);
-    }, 1000);
-
-    return () => clearInterval(interval);
-
-    // const Time = (deuration: number, QId: number) => {
-    //   const TimeInterval = setInterval(() => {
-    //     if (QId <= 5) {
-    //       const daq_outflot: number = deuration / 60;
-    //       const modules: number = deuration % 60;
-    //       const Minit = parseInt(String(daq_outflot));
-    //       const sikin = parseInt(String(modules));
-    //       console.log(`${Minit}:${sikin}`);
-    //     }
-
-    //     if (QId > 5) {
-    //       clearInterval(TimeInterval);
-    //       console.log("Time is Up");
-    //     }
-    //   }, 1000);
-
-    //   return () => clearInterval(TimeInterval);
-    // };
-
-    // Time(5, QId);
+    Time(CountQuation * 35, QId);
   }, []);
 
   return (
@@ -92,7 +128,10 @@ const ExamContainer = () => {
         <audio ref={NextSound}>
           <source src={Next} />
         </audio>
-        {Quation ? (
+        <audio ref={TimeUpd}>
+          <source src={TimeSound} />
+        </audio>
+        {Quation && ActiveTime ? (
           <ExamBoday
             Quation={Quation.Quation}
             Answers={Quation.Answers}
