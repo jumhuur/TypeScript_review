@@ -19,8 +19,6 @@ const ExamContainer = () => {
   const [Qtime, setQtime] = useState<string>("");
   const [ActiveTime, setActiveTime] = useState<boolean>(false);
   const CountQuation: number = Quations.length;
-  const [Mnow, setMnow] = useState<number>();
-  const [Snow, setSnow] = useState<number>();
   //const [count, setCount] = useState<number>(0);
   const NextSound = useRef<HTMLAudioElement>(null);
   const TimeUpd = useRef<HTMLAudioElement>(null);
@@ -80,8 +78,8 @@ const ExamContainer = () => {
         // const TextHour = Math.floor((Farqi % Days) / Hours);
         const TextMinute = Math.floor((Farqi % Hours) / Minutes);
         const TextSecond = Math.floor((Farqi % Minutes) / seconds);
-        setMnow(TextMinute);
-        setSnow(TextSecond);
+
+        // kala habaynta wakhitaga TextMinute  &  TextSecond
         let TimeDhaba: string = `${TextMinute}:${TextSecond}`;
         if (TextMinute <= 9) {
           TimeDhaba = `0${TextMinute}:${TextSecond}`;
@@ -129,7 +127,7 @@ const ExamContainer = () => {
   }, []);
 
   useEffect(() => {
-    Time(CountQuation * 1, QId);
+    Time(CountQuation * 20, QId);
   }, []);
 
   return (
