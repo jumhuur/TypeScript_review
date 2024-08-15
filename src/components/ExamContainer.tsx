@@ -19,6 +19,8 @@ const ExamContainer = () => {
   const [Qtime, setQtime] = useState<string>("");
   const [ActiveTime, setActiveTime] = useState<boolean>(false);
   const CountQuation: number = Quations.length;
+  const [Mnow, setMnow] = useState<number>();
+  const [Snow, setSnow] = useState<number>();
   //const [count, setCount] = useState<number>(0);
   const NextSound = useRef<HTMLAudioElement>(null);
   const TimeUpd = useRef<HTMLAudioElement>(null);
@@ -68,7 +70,6 @@ const ExamContainer = () => {
         const Farqi: number = DeadLine - TimeNow;
 
         // how ican get Time Unites
-
         const seconds = 1000;
         const Minutes = seconds * 60;
         const Hours = Minutes * 60;
@@ -79,6 +80,8 @@ const ExamContainer = () => {
         // const TextHour = Math.floor((Farqi % Days) / Hours);
         const TextMinute = Math.floor((Farqi % Hours) / Minutes);
         const TextSecond = Math.floor((Farqi % Minutes) / seconds);
+        setMnow(TextMinute);
+        setSnow(TextSecond);
         let TimeDhaba: string = `${TextMinute}:${TextSecond}`;
         if (TextMinute <= 9) {
           TimeDhaba = `0${TextMinute}:${TextSecond}`;
@@ -93,12 +96,12 @@ const ExamContainer = () => {
         }
 
         //qalad ayaa ka jira halkan waan hakiyay ilaa uu cadaanayo qaladku
-        // if (TextMinute === 0 && TextMinute <= 5) {
+        // if (TextMinute <= 0 && TextMinute <= 5) {
         //   await TimeUpd.current?.play();
         //   console.log(TimeUpd);
         // }
 
-        if (TextMinute === 0 && TextSecond === 0) {
+        if (TextMinute <= 0 && TextSecond <= 0) {
           console.log("Time is End");
           clearInterval(TimeInterval);
           setActiveTime(false);
@@ -115,6 +118,10 @@ const ExamContainer = () => {
         console.log("Time is Up");
       }
     }, 1000);
+
+    // if (Mnow === 0 && Snow === 0) {
+    //   console.log("Time is End");
+    // }
   };
 
   useEffect(() => {
@@ -122,7 +129,7 @@ const ExamContainer = () => {
   }, []);
 
   useEffect(() => {
-    Time(CountQuation * 3, QId);
+    Time(CountQuation * 1, QId);
   }, []);
 
   return (
