@@ -127,7 +127,7 @@ const ExamContainer = () => {
   }, []);
 
   useEffect(() => {
-    Time(CountQuation * 20, QId);
+    Time(CountQuation * 15, QId);
   }, []);
 
   return (

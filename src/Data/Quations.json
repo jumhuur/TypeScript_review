@@ -108,5 +108,62 @@
     "Quation": "Wakee Html Elemet-ga inoo Qeexaya navigation links?",
     "Answers": ["<nav>", "<Link>", "<navigation>", "<navigate>"],
     "CorectAnswer": "<nav>"
+  },
+  {
+    "QuId": 16,
+    "Quation": "Hadii aan Space badan sameeyo marka aan code-ka qoraya Browserku",
+    "Answers": [
+      "Wuu Samaynayaa isna",
+      "Ma samaynayo",
+      "Mararka Qaar Wuu Samaynayaa Mararka Qaarna Ma Sameeyo",
+      "Midna sax Maaha"
+    ],
+    "CorectAnswer": "Ma samaynayo"
+  },
+  {
+    "QuId": 17,
+    "Quation": "Waa Kee Html Elemen-tiga Loo Adeegsado in Qoraalka Sidaad U soo Qortay Loo Daayo",
+    "Answers": ["<pre>", "<code>", "<design>", "<ignore>"],
+    "CorectAnswer": "<pre>"
+  },
+  {
+    "QuId": 18,
+    "Quation": "pre Tag Waxaa Looga Jeedaa ?",
+    "Answers": [
+      "presize Text",
+      "prepared text",
+      "performance Text",
+      "Preformatted text"
+    ],
+    "CorectAnswer": "Preformatted text"
+  },
+  {
+    "QuId": 19,
+    "Quation": "Dooro Tag La Adeegsado Marka La Samaynayo Muuqaal Wata Subtitle",
+    "Answers": ["<code>", "<Track>", "<Vtt>", "<Link>"],
+    "CorectAnswer": "<Track>"
+  },
+  {
+    "QuId": 20,
+    "Quation": "Hadii Aan Doonayo in Userku Shay Ka Soo Dhex Doorto 300 Shay waxaan Iticamalayaa",
+    "Answers": ["check Box", "Radio", "select box", "options"],
+    "CorectAnswer": "select box"
+  },
+  {
+    "QuId": 21,
+    "Quation": "Hadii Aan Doonayo in Userku Shay Ka Soo Dhex Doorto 4 Shay waxaan Iticamalayaa",
+    "Answers": ["check Box", "Radio", "select box", "check Box ama Radio"],
+    "CorectAnswer": "check Box ama Radio"
+  },
+  {
+    "QuId": 22,
+    "Quation": "input type Check box ah marka la samaynayo waxaa loo sameyaa sidan ",
+    "Answers": [
+      "<input type='check'>",
+      "<input type='checkbox'>",
+      "<input checkbox>",
+      "<checkbox>"
+    ],
+    "CorectAnswer": "<input type='checkbox'>"
   }
 ]
